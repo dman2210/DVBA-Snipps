@@ -27,3 +27,16 @@ For i = 1 To last
     End If
 Next i
 End Sub
+
+'finds the column number of the column right after the non-blank column farthest from A
+Sub findlast()
+Dim last As Integer, lastbook As Integer
+lastbook = 1
+first = Cells(2, "A").Row
+last = Cells(2, "A").End(xlDown).Row
+For i = 1 To last
+    If (Cells(i, "A").End(xlToRight).Column + 1) > lastbook Then
+    lastbook = Cells(i, "A").End(xlToRight).Column
+Next i
+Debug.Print lastbook
+End Sub
