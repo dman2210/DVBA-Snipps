@@ -15,4 +15,15 @@ Next i
 End Sub
 
 
-'
+'to clean up reports with junk inbetween data blocks
+Sub prepdatlatefees()
+Dim last As Integer, blankcol As Integer, selex As String
+last = Cells(2, "A").End(xlDown).Row
+For i = 1 To last
+    If InStr(1, Cells(i, "A").Value, "Report Run") Then
+        selex = i & ":" & (i + 2)
+        Rows(selex).Select
+        Selection.Delete Shift:=xlUp
+    End If
+Next i
+End Sub
