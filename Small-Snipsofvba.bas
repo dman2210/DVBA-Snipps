@@ -37,7 +37,7 @@ last = Cells(2, "A").End(xlDown).Row
 For i = 1 To last
     If (Cells(i, "A").End(xlToRight).Column + 1) > lastbook Then
     lastbook = Cells(i, "A").End(xlToRight).Column
-End If
+    End If
 Next i
 Debug.Print lastbook
 End Sub
