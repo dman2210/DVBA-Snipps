@@ -17,6 +17,7 @@ For i = 1 To endrow
         endcol = Cells(i, "A").End(xlToRight).Column + 1
         Cells(i, endcol).Value = Cells(j, "C").Value
         Cells(j, "C").EntireRow.Delete
+        endrow = Cells(10000, "A").End(xlUp).Row
         End If
     Next j
 Next i
