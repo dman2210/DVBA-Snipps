@@ -1,0 +1,23 @@
+Sub deleteinbet()
+Dim endrow As Integer
+endrow = Cells(10000, "A").End(xlUp).Row
+For i = 1 To endrow
+    If Not IsNumeric(Left(Cells(i, "A").Value, 1)) Then
+        Cells(i, "A").EntireRow.Delete
+    End If
+Next i
+End Sub
+
+Sub stackbook()
+Dim endrow As Integer, endcol As Integer
+endrow = Cells(10000, "A").End(xlUp).Row
+For i = 1 To endrow
+    For j = 1 To endrow
+        If Cells(j, "A").Value = Cells(i, "A").Value Then
+        endcol = Cells(i, "A").End(xlRight).Column + 1
+        Cells(i, endcol).Value = Cells(j, "C").Value
+        Cells(j, "C").EntireRow.Delete
+        End If
+    Next j
+Next i
+End Sub
