@@ -14,7 +14,7 @@ endrow = Cells(10000, "A").End(xlUp).Row
 For i = 1 To endrow
     For j = 1 To endrow
         If Cells(j, "A").Value = Cells(i, "A").Value Then
-        endcol = Cells(i, "A").End(xlRight).Column + 1
+        endcol = Cells(i, "A").End(xlToRight).Column + 1
         Cells(i, endcol).Value = Cells(j, "C").Value
         Cells(j, "C").EntireRow.Delete
         End If
